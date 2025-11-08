@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+:root {
+    --fuentePrincipal: 'Roboto Mono', monospace;
+    --negro: #000;
+    --blanco: #fff;
+    --azulClaro: #00d4ff;
+    --azulOscuro: #0066cc;
+    --amarillo: #ffcc00;
+    --rojo: #ff3333;
+}
+
+/* SVG Principal */
+
+#ruedaSkills {
+    max-width: 100rem;
+    max-height: 100rem;
+}
+
+.segmento {
+    stroke: var(--negro);
+    stroke-width: 5;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+
+.segmento:hover {
+    /* Aclara el color del segmento cuando el mouse hace hover */
+    filter: brightness(2);
+}
+
+/* Texto en el Centro de la Rueda */
+
+.segmento__textoCentral {
+    font-family: var(--fuentePrincipal);
+    font-size: 2rem;
+    text-transform: uppercase;
+    fill: var(--blanco);
+    text-anchor: middle;
+    dominant-baseline: middle;
+}
+
+/* Segmentos Individuales */
+
+.segmento--programacion {
+    fill: var(--azulClaro);
+}
+
+.segmento--frameworks {
+    fill: var(--azulOscuro);
+}
+
+.segmento--fisicas {
+    fill: var(--amarillo);
+}
+
+.segmento--soft {
+    fill: var(--rojo);
+}
+
+/* Conos */
+
+.cono {
+    cursor: pointer;
+    opacity: 0.1;
+    transition: opacity 0.3s ease-out;
+}
+
+.cono:hover {
+    opacity: 0.7;
+}

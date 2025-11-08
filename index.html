@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Diego Jiménez Méndez - Full-Stack .NET Developer specializing in C#, WPF, and modern web technologies">
+    <meta name="author" content="Diego Jiménez Méndez">
+
+    <title>Diego Jiménez Méndez</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/skills-wheel.css">
+    <link rel="stylesheet" href="css/normalize.css">
+
+    <link rel="preload" as="image" href="assets/images/datamosh-bg.gif">
+</head>
+<body>
+    <div class="datamoshBG"></div>
+
+    <div class="navegacion">
+        <ul class="navegacion__menu">
+            <li class="navegacion__item">
+                <a href="#">
+                    <h3>Who I Am</h3>
+                </a>
+            </li>
+            <li class="navegacion__item">
+                <a href="#">
+                    <h3>Previous Experience</h3>
+                </a>
+            </li>
+            <li class="navegacion__item">
+                <a href="views/skills.html">
+                    <h3>Skills</h3>
+                </a>
+            </li>
+            <li class="navegacion__item">
+                <a href="#">
+                    <h3>Projects</h3>
+                </a>
+            </li>
+            <li class="navegacion__item">
+                <a href="#">
+                    <h3>Contact</h3>
+                </a>
+            </li>
+        </ul>
+    </div> <!-- .navegacion -->
+
+    <main>
+        <div class="contenedor-skills">
+            <svg id="ruedaSkills" viewBox="-400 -400 800 800">
+                <!-- Colocado en -400 -400 800 800 y hacer un area de 800x800.
+                     De esa manera el (0, 0) esta al centro del SVG, simplificando la matematica -->
+                
+                <defs>
+                    <!-- Radial gradients for the glowing cone effect.
+                        Each gradient starts with the segment color at full opacity
+                        and fades to transparent as it radiates outward. -->
+                    
+                    <radialGradient id="gradienteProgramacion">
+                        <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.8" />
+                        <stop offset="100%" style="stop-color:#00d4ff;stop-opacity:0" />
+                    </radialGradient>
+
+                    <radialGradient id="gradienteFrameworks">
+                        <stop offset="0%" style="stop-color:#0066cc;stop-opacity:0.8" />
+                        <stop offset="100%" style="stop-color:#0066cc;stop-opacity:0" />
+                    </radialGradient>
+
+                    <radialGradient id="gradienteFisicas">
+                        <stop offset="0%" style="stop-color:#ffcc00;stop-opacity:0.8" />
+                        <stop offset="100%" style="stop-color:#ffcc00;stop-opacity:0" />
+                    </radialGradient>
+
+                    <radialGradient id="gradienteSoft">
+                        <stop offset="0%" style="stop-color:#ff3333;stop-opacity:0.8" />
+                        <stop offset="100%" style="stop-color:#ff3333;stop-opacity:0" />
+                    </radialGradient>
+                </defs>
+
+                <!-- Degradados de color para los conos -->
+                <g id="grupoConos">
+                    <!-- Each cone is a path that extends from the ring outward.
+                        These sit behind the colored rings visually but are the primary click targets. -->
+                    
+                    <path class="cono" 
+                        fill="url(#gradienteProgramacion)"
+                        d="M -160,0 A 160,160 0 0,1 0,-160 L 0,-400 A 400,400 0 0,0 -400,0 Z"
+                        data-category="programacion" />
+
+                    <path class="cono" 
+                        fill="url(#gradienteFrameworks)"
+                        d="M 0,-160 A 160,160 0 0,1 160,0 L 400,0 A 400,400 0 0,0 0,-400 Z"
+                        data-category="frameworks" />
+
+                    <path class="cono" 
+                        fill="url(#gradienteSoft)"
+                        d="M 160,0 A 160,160 0 0,1 0,160 L 0,400 A 400,400 0 0,0 400,0 Z"
+                        data-category="soft" />
+
+                    <path class="cono" 
+                        fill="url(#gradienteFisicas)"
+                        d="M 0,160 A 160,160 0 0,1 -160,0 L -400,0 A 400,400 0 0,0 0,400 Z"
+                        data-category="fisicas" />
+                </g>
+
+                <!-- Los cuatro segmentos que forman el anillo exterior -->
+                <g id="grupoSegmentos">
+                    <path class="segmento segmento--frameworks" 
+                        d="M 0,-180 A 180,180 0 0,1 180,0 L 160,0 A 160,160 0 0,0 0,-160 Z"
+                        data-category="frameworks"/>
+
+                    <path class="segmento segmento--soft" 
+                        d="M 180,0 A 180,180 0 0,1 0,180 L 0,160 A 160,160 0 0,0 160,0 Z"
+                        data-category="soft"/>
+
+                    <path class="segmento segmento--fisicas" 
+                        d="M 0,180 A 180,180 0 0,1 -180,0 L -160,0 A 160,160 0 0,0 0,160 Z"
+                        data-category="fisicas"/>
+
+                    <path class="segmento segmento--programacion" 
+                        d="M -180,0 A 180,180 0 0,1 0,-180 L 0,-160 A 160,160 0 0,0 -160,0 Z"
+                        data-category="programacion"/>
+                </g>
+
+                <!-- Circulo central -->
+                <circle cx="0" cy="0" r="160" fill="var(--negro)" 
+                stroke="var(--blanco)" stroke-width="2"/>
+
+                <!-- Texto en el centro -->
+                <text class="segmento__textoCentral" x="0" y="0" id="textoCentral">SKILLS</text>
+            </svg>
+        </div> <!-- .skills-container -->
+    </main>
+    
+    <script src="js/scripts.js"></script>
+    <script src="js/skills-wheel.js"></script>
+</body>
+</html>

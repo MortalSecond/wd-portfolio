@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills - Diego Jiménez Méndez</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+        :root {
+            --fuentePrincipal: 'Roboto Mono', monospace;
+            --negro: #000;
+            --blanco: #fff;
+            --azulClaro: #00d4ff;
+            --azulOscuro: #0066cc;
+            --amarillo: #ffcc00;
+            --rojo: #ff3333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--negro);
+            font-family: var(--fuentePrincipal);
+            color: var(--blanco);
+            overflow: hidden;
+        }
+
+        .contenedor-skills {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* The SVG is now much larger - we've expanded the viewBox to give more room */
+        #ruedaSkills {
+            width: 90vmin;  /* vmin uses the smaller of viewport width or height */
+            height: 90vmin; /* This ensures the wheel fits on both portrait and landscape screens */
+            max-width: 1000px;
+            max-height: 1000px;
+        }
+
+        /* Thin colored ring segments */
+        .segmento {
+            stroke: var(--negro);
+            stroke-width: 2;
+            cursor: pointer;
+            transition: all 0.3s ease-out;
+        }
+
+        .segmento:hover {
+            filter: brightness(1.5);
+            stroke-width: 3;
+        }
+
+        /* The gradient cone regions that radiate outward */
+        .cono-interactivo {
+            cursor: pointer;
+            opacity: 0.3; /* Start at low opacity so they're subtle */
+            transition: opacity 0.3s ease-out;
+        }
+
+        .cono-interactivo:hover {
+            opacity: 0.6; /* Increase opacity on hover to show interactivity */
+        }
+
+        /* Center text styling */
+        .segmento__textoCentral {
+            font-family: var(--fuentePrincipal);
+            font-size: 32px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            fill: var(--blanco);
+            text-anchor: middle;
+            dominant-baseline: middle;
+            pointer-events: none;
+        }
+
+        /* Individual segment colors */
+        .segmento--programacion {
+            fill: var(--azulClaro);
+        }
+
+        .segmento--frameworks {
+            fill: var(--azulOscuro);
+        }
+
+        .segmento--fisicas {
+            fill: var(--amarillo);
+        }
+
+        .segmento--soft {
+            fill: var(--rojo);
+        }
+
+        /* Back button */
+        .back-button {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            padding: 12px 24px;
+            background-color: transparent;
+            color: var(--blanco);
+            border: 2px solid var(--blanco);
+            font-family: var(--fuentePrincipal);
+            font-size: 14px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.2s ease-out;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .back-button:hover {
+            background-color: var(--blanco);
+            color: var(--negro);
+        }
+    </style>
+</head>
+<body>
+    <a href="../index.html" class="back-button">← BACK</a>
+
+    <div class="contenedor-skills">
+        <svg id="ruedaSkills" viewBox="-500 -500 1000 1000">
+            <!-- Expanded viewBox from 800x800 to 1000x1000 for a larger wheel.
+                 Still centered at (0,0) for easy math. -->
+            
+            <defs>
+                <!-- Radial gradients for the glowing cone effect.
+                     Each gradient starts with the segment color at full opacity
+                     and fades to transparent as it radiates outward. -->
+                
+                <radialGradient id="gradienteProgramacion">
+                    <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.8" />
+                    <stop offset="100%" style="stop-color:#00d4ff;stop-opacity:0" />
+                </radialGradient>
+
+                <radialGradient id="gradienteFrameworks">
+                    <stop offset="0%" style="stop-color:#0066cc;stop-opacity:0.8" />
+                    <stop offset="100%" style="stop-color:#0066cc;stop-opacity:0" />
+                </radialGradient>
+
+                <radialGradient id="gradienteFisicas">
+                    <stop offset="0%" style="stop-color:#ffcc00;stop-opacity:0.8" />
+                    <stop offset="100%" style="stop-color:#ffcc00;stop-opacity:0" />
+                </radialGradient>
+
+                <radialGradient id="gradienteSoft">
+                    <stop offset="0%" style="stop-color:#ff3333;stop-opacity:0.8" />
+                    <stop offset="100%" style="stop-color:#ff3333;stop-opacity:0" />
+                </radialGradient>
+            </defs>
+
+            <!-- Gradient cone regions - these are the main interactive areas -->
+            <g id="grupoConos">
+                <!-- Each cone is a path that extends from the ring outward.
+                     These sit behind the colored rings visually but are the primary click targets. -->
+                
+                <!-- Programacion cone - top left -->
+                <path class="cono-interactivo" 
+                      fill="url(#gradienteProgramacion)"
+                      d="M -160,0 A 160,160 0 0,1 0,-160 L 0,-400 A 400,400 0 0,0 -400,0 Z"
+                      data-category="programacion" />
+
+                <!-- Frameworks cone - top right -->
+                <path class="cono-interactivo" 
+                      fill="url(#gradienteFrameworks)"
+                      d="M 0,-160 A 160,160 0 0,1 160,0 L 400,0 A 400,400 0 0,0 0,-400 Z"
+                      data-category="frameworks" />
+
+                <!-- Soft skills cone - bottom right -->
+                <path class="cono-interactivo" 
+                      fill="url(#gradienteSoft)"
+                      d="M 160,0 A 160,160 0 0,1 0,160 L 0,400 A 400,400 0 0,0 400,0 Z"
+                      data-category="soft" />
+
+                <!-- Fisicas cone - bottom left -->
+                <path class="cono-interactivo" 
+                      fill="url(#gradienteFisicas)"
+                      d="M 0,160 A 160,160 0 0,1 -160,0 L -400,0 A 400,400 0 0,0 0,400 Z"
+                      data-category="fisicas" />
+            </g>
+
+            <!-- Thin colored ring segments - these are now purely visual indicators -->
+            <g id="grupoSegmentos">
+                <!-- The ring is now much thinner: outer radius 180, inner radius 160.
+                     This is a 20px wide ring instead of the previous 80px. -->
+                
+                <path class="segmento segmento--programacion" 
+                      d="M -180,0 A 180,180 0 0,1 0,-180 L 0,-160 A 160,160 0 0,0 -160,0 Z"
+                      data-category="programacion"/>
+
+                <path class="segmento segmento--frameworks" 
+                      d="M 0,-180 A 180,180 0 0,1 180,0 L 160,0 A 160,160 0 0,0 0,-160 Z"
+                      data-category="frameworks"/>
+
+                <path class="segmento segmento--soft" 
+                      d="M 180,0 A 180,180 0 0,1 0,180 L 0,160 A 160,160 0 0,0 160,0 Z"
+                      data-category="soft"/>
+
+                <path class="segmento segmento--fisicas" 
+                      d="M 0,180 A 180,180 0 0,1 -180,0 L -160,0 A 160,160 0 0,0 0,160 Z"
+                      data-category="fisicas"/>
+            </g>
+
+            <!-- Center circle - also larger now -->
+            <circle cx="0" cy="0" r="160" fill="var(--negro)" 
+                    stroke="var(--blanco)" stroke-width="3" />
+
+            <!-- Center text -->
+            <text class="segmento__textoCentral" x="0" y="0" id="textoCentral">SKILLS</text>
+        </svg>
+    </div>
+
+    <script>
+        // ============================================
+        // ESTADO Y DATOS
+        // ============================================
+        
+        const estado = {
+            vistaActual: 'overview',
+            categoriaSeleccionada: null,
+            categoriaHovered: null
+        };
+
+        const nombresCategorias = {
+            'programacion': 'PROGRAMMING',
+            'frameworks': 'FRAMEWORKS',
+            'fisicas': 'PHYSICAL SKILLS',
+            'soft': 'SOFT SKILLS'
+        };
+
+        // ============================================
+        // ELEMENTOS DEL DOCUMENTO
+        // ============================================
+        
+        // Now we select both the ring segments and the cone regions
+        const segmentos = document.querySelectorAll('.segmento');
+        const conos = document.querySelectorAll('.cono-interactivo');
+        const textoCentral = document.getElementById('textoCentral');
+
+        // ============================================
+        // EVENT LISTENERS
+        // ============================================
+        
+        // Attach listeners to both segments and cones
+        [...segmentos, ...conos].forEach(elemento => {
+            elemento.addEventListener('mouseenter', segmentoHover);
+            elemento.addEventListener('mouseleave', segmentoSalirHover);
+            elemento.addEventListener('click', segmentoSeleccion);
+        });
+
+        // ============================================
+        // FUNCIONES
+        // ============================================
+        
+        function segmentoHover(e) {
+            const categoria = e.target.dataset.category;
+            estado.categoriaHovered = categoria;
+            textoCentral.textContent = nombresCategorias[categoria];
+        }
+
+        function segmentoSalirHover() {
+            estado.categoriaHovered = null;
+            
+            if (estado.categoriaSeleccionada === null) {
+                textoCentral.textContent = 'SKILLS';
+            } else {
+                textoCentral.textContent = nombresCategorias[estado.categoriaSeleccionada];
+            }
+        }
+
+        function segmentoSeleccion(e) {
+            const categoria = e.target.dataset.category;
+            estado.categoriaSeleccionada = categoria;
+            textoCentral.textContent = nombresCategorias[categoria];
+            console.log(`Categoría seleccionada: ${categoria}`);
+            
+            // TODO: Implementar transición de zoom a vista detallada
+        }
+
+        // ============================================
+        // INICIALIZACIÓN
+        // ============================================
+        
+        console.log('Rueda de habilidades inicializada');
+    </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+:root {
+    --fuentePrincipal: 'Roboto Mono', monospace;
+
+    --negro: #000;
+    --negroTransparente: #000000ab;
+    --blanco: #fff;
+    --claro: #727272;
+    --azulAcento: #00d4ff;
+}
+
+html{
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*, *:after, *:before{
+    box-sizing: inherit;
+}
+
+/* Globales */
+
+body{
+    background-color: var(--negro);
+}
+
+a{
+    text-decoration: none;
+}
+
+h1,h2,h3{
+    font-family: var(--fuentePrincipal);
+    margin: 0;
+}
+
+h1{
+    font-size: 4.8rem;
+}
+
+h2{
+    font-size: 3.8rem;
+}
+
+h3{
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+/* Fondo con Datamoshing */
+
+.datamoshBG{
+    background-image: url(../assets/images/datamosh-bg.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+/* Navegacion */
+
+.navegacion{
+    color: var(--blanco);
+    background-color: var(--negroTransparente);
+    width: 30rem;
+    margin: auto auto;
+}
+
+@media (min-width: 768px) {
+    .navegacion{
+        width: 30rem;
+        margin-left: 5rem;
+        margin-top: 20rem;
+    }
+}
+
+.navegacion__menu{
+    list-style: none;
+    padding: 1rem;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .navegacion__menu{
+        text-align: right;
+    }
+}
+
+.navegacion__item{
+    padding: 0.5rem 1rem;
+    border-bottom: 2px dotted var(--claro);
+    transition: all 0.2s ease-out;
+}
+
+.navegacion__item:hover{
+    color: var(--negro);
+    background-color: var(--blanco);
+    padding-bottom: 3rem;
+}
+
+.navegacion__item a{
+    color: inherit;
+}
