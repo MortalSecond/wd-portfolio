@@ -1,6 +1,6 @@
 // Clases
 
-const estado = {
+const state = {
     vistaActual: 'overview',        // 'overview' o 'detalle'
     categoriaSeleccionada: null,    // Cual categoria esta seleccionada
     categoriaHovered: null          // Cual categoria esta en hover
@@ -26,26 +26,47 @@ segmentos.forEach(segment => {
     segment.addEventListener('click', segmentoSeleccion);
 });
 
-// Funciones
+// Funciones UI
 
 function segmentoHover(e){
-    const categoria = e.target.dataset.category;
+    const categoria = obtenerTipoDeCategoria(e);
 
-    estado.categoriaHovered = categoria;
-    textoCentral.textContent = nombresCategorias[categoria];
+    state.categoriaHovered = categoria;
+    
+    textoCentral.textContent = state.categoriaHovered;
 }
 
 function segmentoSalirHover(){
-    estado.categoriaHovered = null;
+    state.categoriaHovered = null;
 
-    if (estado.categoriaSeleccionada === null)
+    if (state.categoriaSeleccionada == null)
         textoCentral.textContent = 'SKILLS';
     else
-        textoCentral.textContent = estado.categoriaSeleccionada;
+        textoCentral.textContent = state.categoriaSeleccionada;
 }
 
 function segmentoSeleccion(e){
-    const categoria = e.target.dataset.category;
-    estado.categoriaSeleccionada = categoria;
+    const categoria = obtenerTipoDeCategoria(e);
+
+    state.categoriaSeleccionada = categoria;
     console.log(`Selected category: ${categoria}`);
+}
+
+// Funciones de Utilidad
+
+function obtenerTipoDeCategoria(e){
+    const categoria = e.target.dataset.category;
+
+    switch(categoria){
+        case 'programacion':
+            return nombresCategorias.programacion;
+        case 'frameworks':
+            return nombresCategorias.frameworks;
+        case 'fisicas':
+            return nombresCategorias.fisicas;
+        case 'soft':
+            return nombresCategorias.soft;
+        default:
+            return ''
+    }
 }

@@ -69,3 +69,41 @@
 .cono:hover {
     opacity: 0.7;
 }
+
+/* Degradados */
+
+#degradadoProgramacion stop{
+    stop-color: var(--azulClaro);
+    stop-opacity:0.8
+}
+
+#degradadoProgramacion stop:last-of-type{
+    stop-opacity:0
+}
+
+#degradadoFrameworks stop{
+    stop-color: var(--azulOscuro);
+    stop-opacity:0.8
+}
+
+#degradadoFrameworks stop:last-of-type{
+    stop-opacity:0
+}
+
+#degradadoFisicas stop{
+    stop-color: var(--amarillo);
+    stop-opacity:0.8
+}
+
+#degradadoFisicas stop:last-of-type{
+    stop-opacity:0
+}
+
+#degradadoSoft stop{
+    stop-color: var(--rojo);
+    stop-opacity:0.8
+}
+
+#degradadoSoft stop:last-of-type{
+    stop-opacity:0
+}
