@@ -1,3 +1,8 @@
+import localizacionEN from '../locales/en.json' with {type: 'json'};
+import localizacionES from '../locales/es.json' with {type: 'json'};
+
+var localizacion = localizacionEN;
+
 // Clases
 
 const state = {
@@ -7,10 +12,10 @@ const state = {
 };
 
 const nombresCategorias = {
-    'programacion': 'PROGRAMMING',
-    'frameworks': 'FRAMEWORKS',
-    'fisicas': 'PHYSICAL SKILLS',
-    'soft': 'SOFT SKILLS'
+    'programacion': localizacion.habilidades.programacion,
+    'frameworks': localizacion.habilidades.frameworks,
+    'fisicas': localizacion.habilidades.habilidadesBlandas,
+    'soft': localizacion.habilidades.habilidadesFisicas
 };
 
 // Elementos del documento
