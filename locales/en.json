@@ -1,0 +1,15 @@
+{
+	"menu": {
+        "quienSoy": "Who I Am",
+        "experiencia": "Previous Experience",
+        "habilidades": "Skills",
+        "proyectos": "projects",
+        "contacto": "Contact"
+    },
+    "habilidades": {
+        "programacion": "Programming",
+        "frameworks": "Frameworks",
+        "habilidadesBlandas": "Soft Skills",
+        "habilidadesFisicas": "Physical Skills"
+    }
+}

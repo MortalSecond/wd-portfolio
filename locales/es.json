@@ -1,0 +1,15 @@
+{
+	"menu": {
+        "quienSoy": "Quién Soy",
+        "experiencia": "Experiencia Previa",
+        "habilidades": "Habilidades",
+        "proyectos": "Proyectos",
+        "contacto": "Contacto"
+    },
+    "habilidades": {
+        "programacion": "Programación",
+        "frameworks": "Frameworks",
+        "habilidadesBlandas": "Habilidades Blandas",
+        "habilidadesFisicas": "Habilidades Físicas"
+    }
+}
